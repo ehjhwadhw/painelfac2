@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Facção</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="panel-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <button class="tab-btn active" data-tab="members" title="Membros">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </button>
+        <button class="tab-btn" data-tab="wallet" title="Banco">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+            <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+            <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
+          </svg>
+        </button>
+        <button class="tab-btn" data-tab="storage" title="Estoque">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m7.5 4.27 9 5.15"/>
+            <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+            <path d="m3.3 7 8.7 5 8.7-5"/>
+            <path d="M12 22V12"/>
+          </svg>
+        </button>
+        <button class="tab-btn" data-tab="delivery" title="Rotas">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+            <path d="M15 18H9"/>
+            <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+            <circle cx="17" cy="18" r="2"/>
+            <circle cx="7" cy="18" r="2"/>
+          </svg>
+        </button>
+        <button class="tab-btn" data-tab="settings" title="Configurações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </nav>
+      <button class="exit-btn" id="exitBtn" title="Sair da Facção">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" x2="9" y1="12" y2="12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Close Button -->
+      <button class="close-btn" id="closeBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/>
+          <path d="m6 6 12 12"/>
+        </svg>
+      </button>
+
+      <!-- Header -->
+      <div class="header">
+        <div class="logo-container" id="logoContainer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/1200px-Flag_of_Bolivia.svg.png" alt="Logo da facção" id="factionLogo">
+        </div>
+        <div class="header-info">
+          <h1 class="header-subtitle">PAINEL DE FACÇÃO</h1>
+          <h2 class="header-title" id="factionName">ORGANIZAÇÃO</h2>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="content-area">
+        <!-- Members Tab -->
+        <div class="tab-content active" id="members-content">
+          <div class="members-main">
+            <div class="table-container">
+              <div class="search-container">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="m21 21-4.3-4.3"/>
+                </svg>
+                <input type="text" placeholder="Pesquisar membro" id="searchInput">
+              </div>
+              <div class="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Nome</th>
+                      <th>Cargo</th>
+                      <th>Tempo Jogado</th>
+                      <th>Data de Entrada</th>
+                      <th>Último Login</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="membersTable">
+                    <!-- Members will be inserted here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="members-sidebar">
+            <div class="action-buttons">
+              <button class="btn btn-green" id="hireBtn">CONTRATAR</button>
+              <button class="btn btn-red" id="fireBtn">DEMITIR</button>
+            </div>
+            <div class="info-card">
+              <h3 class="info-label">Saldo Bancário</h3>
+              <p class="info-value colored" id="saldoDisplay">R$ 0</p>
+            </div>
+            <div class="info-card">
+              <h3 class="info-label">Membros Online</h3>
+              <p class="info-value"><span class="colored" id="onlineCount">0</span> <span class="info-suffix">PLAYERS</span></p>
+            </div>
+            <div class="info-card">
+              <h3 class="info-label">Total de Membros</h3>
+              <p class="info-value"><span class="colored" id="totalMembers">0</span><span class="info-total">/30</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wallet Tab -->
+        <div class="tab-content" id="wallet-content">
+          <div class="wallet-main">
+            <div class="wallet-actions">
+              <div class="info-card large">
+                <h3 class="info-label">Saldo Atual</h3>
+                <p class="info-value big colored" id="bankBalance">R$ 0</p>
+              </div>
+              <div class="info-card">
+                <label class="info-label">Valor</label>
+                <input type="text" inputmode="numeric" placeholder="Digite o valor" class="value-input" id="bankAmount">
+              </div>
+              <div class="bank-buttons">
+                <button class="btn btn-colored" id="depositBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 8v8"/>
+                    <path d="m8 12 4 4 4-4"/>
+                  </svg>
+                  DEPOSITAR
+                </button>
+                <button class="btn btn-gray" id="withdrawBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16V8"/>
+                    <path d="m8 12 4-4 4 4"/>
+                  </svg>
+                  SACAR
+                </button>
+              </div>
+            </div>
+            <div class="extrato-container">
+              <div class="extrato-header">
+                <h3>Extrato</h3>
+              </div>
+              <div class="extrato-list" id="extratoList">
+                <!-- Transactions will be inserted here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Storage Tab -->
+        <div class="tab-content" id="storage-content">
+          <div class="placeholder">
+            <p>Em desenvolvimento...</p>
+          </div>
+        </div>
+
+        <!-- Delivery Tab -->
+        <div class="tab-content" id="delivery-content">
+          <div class="routes-grid">
+            <div class="route-card">
+              <div class="route-header">
+                <div class="route-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                    <path d="M15 18H9"/>
+                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                    <circle cx="17" cy="18" r="2"/>
+                    <circle cx="7" cy="18" r="2"/>
+                  </svg>
+                </div>
+                <div class="route-info">
+                  <h3>Alumínio</h3>
+                  <p>Los Santos | Sul</p>
+                </div>
+              </div>
+              <button class="btn btn-colored route-btn" data-route="Alumínio" data-location="Los Santos | Sul" data-type="1">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                MARCAR ROTA
+              </button>
+            </div>
+            <div class="route-card">
+              <div class="route-header">
+                <div class="route-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                    <path d="M15 18H9"/>
+                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                    <circle cx="17" cy="18" r="2"/>
+                    <circle cx="7" cy="18" r="2"/>
+                  </svg>
+                </div>
+                <div class="route-info">
+                  <h3>Alumínio</h3>
+                  <p>Los Santos | Norte</p>
+                </div>
+              </div>
+              <button class="btn btn-colored route-btn" data-route="Alumínio" data-location="Los Santos | Norte" data-type="2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                MARCAR ROTA
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Configurações</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>URL da Logo</label>
+          <input type="text" id="logoUrlInput" placeholder="https://exemplo.com/logo.png">
+        </div>
+        <div class="form-group">
+          <label>Cor da Facção</label>
+          <div class="color-options">
+            <button class="color-btn" data-color="green" style="background: #22c55e;"></button>
+            <button class="color-btn" data-color="blue" style="background: #3b82f6;"></button>
+            <button class="color-btn" data-color="purple" style="background: #a855f7;"></button>
+            <button class="color-btn active" data-color="yellow" style="background: #eab308;"></button>
+            <button class="color-btn" data-color="red" style="background: #ef4444;"></button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-green" id="saveSettingsBtn">CONFIRMAR</button>
+        <button class="btn btn-red modal-cancel">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hire Modal -->
+  <div class="modal" id="hireModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Contratar</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-text">Digite o passaporte do jogador que deseja contratar</p>
+        <input type="text" id="hirePassportInput" placeholder="Ex: 123456" class="passport-input">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-green" id="confirmHireBtn">CONFIRMAR</button>
+        <button class="btn btn-red modal-cancel">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fire Modal -->
+  <div class="modal" id="fireModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Demitir</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-text">Digite o passaporte do jogador que deseja demitir</p>
+        <input type="text" id="firePassportInput" placeholder="Ex: 123456" class="passport-input">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-green" id="confirmFireBtn">CONFIRMAR</button>
+        <button class="btn btn-red modal-cancel">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit Modal -->
+  <div class="modal" id="exitModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Sair da Facção</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-text">Tem certeza que deseja sair da facção?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-green" id="confirmExitBtn">CONFIRMAR</button>
+        <button class="btn btn-red modal-cancel">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Route Modal -->
+  <div class="modal" id="routeModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Iniciar Rota</h2>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-text">Deseja começar a rota <span class="colored" id="routeName"></span> em <span class="colored" id="routeLocation"></span>?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-green" id="confirmRouteBtn">CONFIRMAR</button>
+        <button class="btn btn-red modal-cancel">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
