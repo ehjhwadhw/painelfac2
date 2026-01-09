@@ -1,8 +1,8 @@
 {
   "id": 1,
   "nome": "TROPA DA FRANCA",
-  "saldo": 0,
-  "lider": "",
+  "saldo": 50000,
+  "lider": "Carlos_Daniel",
   "subLider": "",
   "gerente": "",
   "recrutador": "",
