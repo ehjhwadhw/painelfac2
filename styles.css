@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  background: transparent !important;
+}
+
 :root {
   --color-green: #22c55e;
   --color-blue: #3b82f6;
@@ -17,19 +21,22 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: transparent;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .panel-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.64);
   display: flex;
-  width: 50%;
-  height: 50vh;
-  transform: scale(0.5);
-  transform-origin: center center;
+  width: 920px;
+  height: 480px;
   background: rgba(0, 0, 0, 0.85);
   border-radius: 12px;
   overflow: hidden;
@@ -199,10 +206,11 @@ body {
 }
 
 .members-sidebar {
-  width: 256px;
+  width: 180px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .table-container {
@@ -651,7 +659,7 @@ tr:hover {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 15px;
-  width: 245px;
+  width: 290px;
   transform: scale(0.64);
 }
 
